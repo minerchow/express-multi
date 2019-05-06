@@ -2,6 +2,7 @@ import axios from 'axios'
 // styles
 import 'less/index.less'
 
+let partTpl =  require('../tpls/includes/part.ejs');
 const isDev = process.env.NODE_ENV === 'development'
 
 // 在开发环境下，使用 raw-loader 引入 ejs 模板文件，强制 webpack 将其视为需要热更新的一部分 bundle
@@ -11,7 +12,10 @@ if (isDev) {
 
 async function welcome () {
 	let res = await sayHello()
-	console.log(res)
+    console.log(res)
+  //  document.getElementById('container').innerHTML = partTpl({name:"aaa"})
+   var html = ejs.render(partTpl,{name:"333"});
+   document.getElementById('container').innerHTML = html;
 }
 
 function sayHello () {
