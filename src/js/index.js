@@ -1,7 +1,7 @@
 import axios from 'axios'
 // styles
 import 'less/index.less'
-
+import ejs from 'ejs/ejs.min';
 let partTpl =  require('../tpls/includes/part.ejs');
 const isDev = process.env.NODE_ENV === 'development'
 
